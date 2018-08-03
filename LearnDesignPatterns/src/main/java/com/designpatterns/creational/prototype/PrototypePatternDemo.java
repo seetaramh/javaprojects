@@ -15,7 +15,7 @@ public class PrototypePatternDemo {
 		System.out.println("Name: "+cs.getFirstName()+"  "+cs.getLastName());
 		System.out.println("Car Model: Maruti Baleno");
 		cardelivery.addDeliveredCar(customerHandler.getCustomer(custId), (Car)CarCache.getCar(carModel).clone());
-		
+		System.out.println("---------------------------------------------");
 	}
 
 }
