@@ -8,7 +8,7 @@ public class PrototypePatternDemo {
 		CustomerHandler customerHandler = new CustomerHandler();
 		CarCache.loadCache();
 		String custId = "pr123";
-	    String carModel = "BALENO";
+	        String carModel = "BALENO";
 		Customer cs = customerHandler.getCustomer(custId);
 		System.out.println("---------------------------------------------");
 		System.out.println("Car delivered for the customer:");
