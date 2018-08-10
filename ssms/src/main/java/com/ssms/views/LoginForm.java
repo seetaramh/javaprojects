@@ -1,59 +1,86 @@
 package com.ssms.views;
 
-import java.awt.Dimension;
+import java.awt.EventQueue;
+import java.awt.Toolkit;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextArea;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
 
-public class LoginForm extends JPanel {
+import com.ssms.utilities.GraphicUtility;
 
-	  private static final long serialVersionUID = 1L;
-	  private JTextArea usernameTxt;
-	  private JLabel usernameLbl;
-	  private JTextArea pwdTxt;
-	  private JLabel pwdLbl;
-	  private JButton loginBtn;
-	  private JButton cancelBtn;
+public class LoginForm {
 
-	  public LoginForm() {
-	      //construct components
-	      usernameTxt = new JTextArea (5, 5);
-	      usernameLbl = new JLabel ("UserName:");
-	      pwdTxt = new JTextArea (5, 5);
-	      pwdLbl = new JLabel ("Password:");
-	      loginBtn = new JButton ("Login");
-	      cancelBtn = new JButton ("Cancel");
+	private JFrame frame;
+	private JTextField txtUsername;
+	private JPasswordField txtPassword;
 
-	      //adjust size and set layout
-	      setPreferredSize (new Dimension (402, 261));
-	      setLayout (null);
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					LoginForm window = new LoginForm();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
 
-	      //add components
-	      add (usernameTxt);
-	      add (usernameLbl);
-	      add (pwdTxt);
-	      add (pwdLbl);
-	      add (loginBtn);
-	      add (cancelBtn);
+	/**
+	 * Create the application.
+	 */
+	public LoginForm() {
+		initComponents();
+		createEvents();
+	}
 
-	      //set component bounds (only needed by Absolute Positioning)
-	      usernameTxt.setBounds (145, 70, 180, 30);
-	      usernameLbl.setBounds (55, 70, 75, 25);
-	      pwdTxt.setBounds (145, 110, 180, 30);
-	      pwdLbl.setBounds (55, 110, 80, 25);
-	      loginBtn.setBounds (90, 180, 105, 40);
-	      cancelBtn.setBounds (215, 180, 120, 40);
-	  }
-	
-	  public void showLogin() {
-	      JFrame frame = new JFrame ("Login");
-	      frame.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
-	      frame.getContentPane().add (new MyPanel());
-	      frame.pack();
-	      frame.setVisible (true);
-	  }
-	
+	private void createEvents() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void initComponents() {
+		frame = new JFrame();
+		frame.setTitle("Member Login");
+		frame.setIconImage(Toolkit.getDefaultToolkit().getImage("./resources/icons/lock.png"));
+		frame.setBounds(100, 100, 370, 259);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+		JLabel lblUsername = new JLabel("Username:");
+		lblUsername.setBounds(69, 84, 65, 21);
+		frame.getContentPane().add(lblUsername);
+		
+		JLabel lblPassword = new JLabel("Password:");
+		lblPassword.setBounds(69, 116, 65, 21);
+		frame.getContentPane().add(lblPassword);
+		
+		txtUsername = new JTextField();
+		txtUsername.setBounds(134, 84, 127, 20);
+		frame.getContentPane().add(txtUsername);
+		txtUsername.setColumns(10);
+		
+		txtPassword = new JPasswordField();
+		txtPassword.setBounds(134, 116, 127, 20);
+		frame.getContentPane().add(txtPassword);
+		txtPassword.setColumns(10);
+		
+		JButton btnLogin = new JButton("Login");
+		btnLogin.setBounds(144, 161, 105, 23);
+		frame.getContentPane().add(btnLogin);
+		
+		JLabel lblMemberLogin = new JLabel("SIGN IN");
+		lblMemberLogin.setBounds(166, 42, 53, 21);
+		frame.getContentPane().add(lblMemberLogin);
+		GraphicUtility.setWindowPosition(frame);
+		
+	}
+
 }
