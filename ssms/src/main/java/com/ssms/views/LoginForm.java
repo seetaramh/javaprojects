@@ -17,10 +17,12 @@ public class LoginForm {
 	private JTextField txtUsername;
 	private JPasswordField txtPassword;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
+	public LoginForm() {
+		initComponents();
+		createEvents();
+	}
+
+	public void show() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -31,19 +33,12 @@ public class LoginForm {
 				}
 			}
 		});
-	}
 
-	/**
-	 * Create the application.
-	 */
-	public LoginForm() {
-		initComponents();
-		createEvents();
 	}
 
 	private void createEvents() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	private void initComponents() {
@@ -53,34 +48,34 @@ public class LoginForm {
 		frame.setBounds(100, 100, 370, 259);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		
+
 		JLabel lblUsername = new JLabel("Username:");
 		lblUsername.setBounds(69, 84, 65, 21);
 		frame.getContentPane().add(lblUsername);
-		
+
 		JLabel lblPassword = new JLabel("Password:");
 		lblPassword.setBounds(69, 116, 65, 21);
 		frame.getContentPane().add(lblPassword);
-		
+
 		txtUsername = new JTextField();
 		txtUsername.setBounds(134, 84, 127, 20);
 		frame.getContentPane().add(txtUsername);
 		txtUsername.setColumns(10);
-		
+
 		txtPassword = new JPasswordField();
 		txtPassword.setBounds(134, 116, 127, 20);
 		frame.getContentPane().add(txtPassword);
 		txtPassword.setColumns(10);
-		
+
 		JButton btnLogin = new JButton("Login");
 		btnLogin.setBounds(144, 161, 105, 23);
 		frame.getContentPane().add(btnLogin);
-		
+
 		JLabel lblMemberLogin = new JLabel("SIGN IN");
 		lblMemberLogin.setBounds(166, 42, 53, 21);
 		frame.getContentPane().add(lblMemberLogin);
 		GraphicUtility.setWindowPosition(frame);
-		
+
 	}
 
 }
